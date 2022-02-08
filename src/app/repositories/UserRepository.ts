@@ -5,7 +5,7 @@ export {};
 interface UserData {
   name: string,
   phone: string,
-  password: any,
+  password: string,
   email: string
 }
 

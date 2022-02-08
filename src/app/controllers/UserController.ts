@@ -25,8 +25,6 @@ class UserController {
 
     const encryptedPassword = await bcrypt.hash(password, salt);
 
-    console.log(encryptedPassword);
-
     const userCreated = await UserRepository.store({
       name, email, phone, password: String(encryptedPassword),
     });
