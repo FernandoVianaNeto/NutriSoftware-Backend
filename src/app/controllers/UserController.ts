@@ -1,6 +1,9 @@
+const bcrypt = require('bcrypt');
 const UserRepository = require('../repositories/UserRepository.ts');
 
 export {};
+
+const salt = bcrypt.genSaltSync(10);
 
 class UserController {
   async index(request: any, response: any) {
@@ -20,8 +23,12 @@ class UserController {
       return response.sendStatus(400).json({ error: 'This email has already been registered' });
     }
 
+    const encryptedPassword = await bcrypt.hash(password, salt);
+
+    console.log(encryptedPassword);
+
     const userCreated = await UserRepository.store({
-      name, email, phone, password,
+      name, email, phone, password: String(encryptedPassword),
     });
 
     return response.json(userCreated);
