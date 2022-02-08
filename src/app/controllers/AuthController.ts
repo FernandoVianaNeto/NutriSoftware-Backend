@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const UserRepository = require('../repositories/UserRepository.ts');
 const authConfig = require('../../config/authConfig.ts');
 
+export {};
 class AuthController {
   async login(request: any, response: any) {
     const { email, password } = request.body;
@@ -28,4 +29,4 @@ class AuthController {
   }
 }
 
-module.exports = AuthController;
+module.exports = new AuthController();
