@@ -4,6 +4,7 @@ const Router = require('express');
 
 const UserController = require('./app/controllers/UserController.ts');
 const AuthController = require('./app/controllers/AuthController.ts');
+const MealController = require('./app/controllers/MealController.ts');
 
 const router = Router();
 
@@ -22,5 +23,8 @@ router.post('/auth', AuthController.login);
 // router.use(authMiddleware);
 
 // Rotas protegidas
+
+router.get('/meals', MealController.index);
+router.post('/createmeal', MealController.createMeal);
 
 module.exports = router;
