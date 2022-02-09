@@ -35,7 +35,7 @@ class MealRepository {
       meal,
       reference,
       date,
-    });
+    }).returning('*');
 
     return row;
   }
