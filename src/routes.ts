@@ -24,7 +24,7 @@ router.post('/auth', AuthController.login);
 
 // Rotas protegidas
 
-router.get('/meals', MealController.index);
-router.post('/createmeal', MealController.createMeal);
+router.get('/meals/:userid', MealController.index);
+router.post('/createmeal/:userid', MealController.createMeal);
 
 module.exports = router;

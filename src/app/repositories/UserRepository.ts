@@ -22,6 +22,12 @@ class UserRepository {
     return row;
   }
 
+  async findUserById(id: any) {
+    const [row] = await knex('users').where('id', id);
+
+    return row;
+  }
+
   async store({
     name, phone, password, email,
   }: UserData) {

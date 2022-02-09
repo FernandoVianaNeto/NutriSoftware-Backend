@@ -18,5 +18,7 @@ CREATE TABLE IF NOT EXISTS meals (
   vegetablesamount INTEGER,
   proteinfood VARCHAR,
   carbohydratefood VARCHAR,
-  vegetablefood VARCHAR
+  vegetablefood VARCHAR,
+  date VARCHAR NOT NULL, 
+  reference UUID NOT NULL
 );
