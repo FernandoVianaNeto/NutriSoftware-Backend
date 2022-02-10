@@ -27,6 +27,7 @@ router.use(authMiddleware);
 router.get('/meals/:userid', MealController.index);
 router.get('/meals/:userid/:mealid', MealController.show);
 router.post('/createmeal/:userid', MealController.createMeal);
+router.post('/updatemeal/:userid/:mealid', MealController.updateMeal);
 router.delete('/deletemeal/:userid', MealController.deleteMeal);
 
 module.exports = router;

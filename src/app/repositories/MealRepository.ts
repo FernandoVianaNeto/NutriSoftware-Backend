@@ -14,6 +14,19 @@ interface MealProps {
   date: string
 }
 
+interface MealUpdate {
+  vegetablesamount: number,
+  proteinsamount: number,
+  carbohydratesamount: number,
+  carbohydratefood: string,
+  proteinfood: string,
+  vegetablefood: string,
+  meal: string,
+  reference: string,
+  date: string,
+  mealid: string
+}
+
 class MealRepository {
   async findAll(reference: any) {
     const rows = await knex('meals').where('reference', reference);
@@ -48,6 +61,31 @@ class MealRepository {
 
   async delete(userid: string) {
     await knex('meals').where('id', userid).del();
+  }
+
+  async update({
+    vegetablesamount,
+    proteinsamount,
+    carbohydratesamount,
+    carbohydratefood,
+    proteinfood,
+    vegetablefood,
+    meal,
+    date,
+    mealid,
+  }: MealUpdate) {
+    const [row] = await knex('meals').update({
+      vegetablefood,
+      vegetablesamount,
+      proteinsamount,
+      carbohydratesamount,
+      carbohydratefood,
+      proteinfood,
+      meal,
+      date,
+    }).where({ id: mealid }).returning('*');
+
+    return row;
   }
 }
 

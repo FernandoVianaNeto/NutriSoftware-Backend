@@ -40,6 +40,12 @@ class MealController {
 
     const { userid } = request.params;
 
+    const user = await UserRepository.findUserById(userid);
+
+    if (!user) {
+      return response.sendStatus(400).json({ error: 'User not found' });
+    }
+
     const mealCreated = await MealRepository.store({
       vegetablesamount,
       proteinsamount,
@@ -52,7 +58,7 @@ class MealController {
       reference: userid,
     });
 
-    response.json(mealCreated);
+    return response.json(mealCreated);
   }
 
   async deleteMeal(request: any, response: any) {
@@ -61,6 +67,40 @@ class MealController {
     await MealRepository.delete(userid);
 
     response.sendStatus(200);
+  }
+
+  async updateMeal(request: any, response: any) {
+    const {
+      vegetablesamount, proteinsamount, carbohydratesamount,
+      carbohydratefood, proteinfood, vegetablefood, meal, date,
+    } = request.body;
+    const { userid, mealid } = request.params;
+
+    const user = await UserRepository.findUserById(userid);
+
+    if (!user) {
+      return response.sendStatus(400).json({ error: 'User not found' });
+    }
+
+    const mealToUpdate = await MealRepository.findMealById(mealid);
+
+    if (!mealToUpdate) {
+      response.sendStatus(400);
+    }
+
+    const updatedMeal = await MealRepository.update({
+      vegetablesamount,
+      proteinsamount,
+      carbohydratesamount,
+      carbohydratefood,
+      proteinfood,
+      vegetablefood,
+      meal,
+      date,
+      mealid,
+    });
+
+    return response.json(updatedMeal);
   }
 }
 
