@@ -21,6 +21,12 @@ class MealRepository {
     return rows;
   }
 
+  async findMealById(id: any) {
+    const [row] = await knex('meals').where('id', id);
+
+    return row;
+  }
+
   async store({
     vegetablesamount, proteinsamount, carbohydratesamount, carbohydratefood,
     proteinfood, vegetablefood, meal, date, reference,
@@ -38,6 +44,10 @@ class MealRepository {
     }).returning('*');
 
     return row;
+  }
+
+  async delete(userid: string) {
+    await knex('meals').where('id', userid).del();
   }
 }
 

@@ -25,6 +25,8 @@ router.use(authMiddleware);
 // Rotas protegidas
 
 router.get('/meals/:userid', MealController.index);
+router.get('/meals/:userid/:mealid', MealController.show);
 router.post('/createmeal/:userid', MealController.createMeal);
+router.delete('/deletemeal/:userid', MealController.deleteMeal);
 
 module.exports = router;
