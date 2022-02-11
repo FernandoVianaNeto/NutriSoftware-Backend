@@ -109,6 +109,13 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
+"@types/knex@^0.16.1":
+  version "0.16.1"
+  resolved "https://registry.yarnpkg.com/@types/knex/-/knex-0.16.1.tgz#619678407265c675463c563ed38323461a49515d"
+  integrity sha512-54gWD1HWwdVx5iLHaJ1qxH3I6KyBsj5fFqzRpXFn7REWiEB2jwspeVCombNsocSrqPd7IRPqKrsIME7/cD+TFQ==
+  dependencies:
+    knex "*"
+
 "@types/node@^17.0.16":
   version "17.0.16"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.16.tgz#e3733f46797b9df9e853ca9f719c8a6f7b84cd26"
@@ -1787,7 +1794,7 @@ knew@^0.0.0:
   resolved "https://registry.yarnpkg.com/knew/-/knew-0.0.0.tgz#7060670c93c33282834337ecb89dc8c06829f742"
   integrity sha1-cGBnDJPDMoKDQzfsuJ3IwGgp90I=
 
-knex@^1.0.2:
+knex@*, knex@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/knex/-/knex-1.0.2.tgz#1b79273f39f587a631c1a5515482c203d5971781"
   integrity sha512-RuDKTylj6X/3nYomnsFV8sOdxTcehLHczOd3yrUdULE4pQR8jVlZxYt3vvIU04otJF0Cw9DCtRt05S4PN4kDpw==
